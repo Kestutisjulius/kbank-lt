@@ -1,0 +1,27 @@
+@import './bootstrap.css';
+
+.one-account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    &__content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        span {
+            color: rgb(71, 91, 201);
+            padding-left: 10px;
+        }
+    }
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+.modal {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+}
