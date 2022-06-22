@@ -5,22 +5,29 @@ import DataContext from './Components/DataContext';
 import List from './Components/List';
 import Top from './Components/Top';
 import Edit from './Components/Edit';
+import Create from './Components/Create';
 
 function App() {
 
-  
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
   const [accounts, setAccounts] = useState([]);
+  const [createAccount, setCreateAccount] = useState(null);
   const [deleteAccount, setDeleteAccount] = useState([]);
   const [editAccount, setEditAccount] = useState(null);
 
-  const [modalAccount, setModalAccount] = useState(1);
+  const [modalAccount, setModalAccount] = useState(null);
 
   useEffect(() => {
     axios.get('http://kbankas.lt/api/work')
       .then(res => setAccounts(res.data));
   }, [lastUpdate]);
+
+  useEffect(() => {
+    if (null === createAccount) return;
+    axios.post('http://kbankas.lt/api/create', createAccount)
+      .then(_ => setLastUpdate(Date.now()));
+  }, [createAccount]);
 
   useEffect(() => {
     if(null === deleteAccount) return;
@@ -38,13 +45,14 @@ function App() {
 
     <DataContext.Provider value={
         {
-        accounts, setDeleteAccount, modalAccount, setModalAccount, setEditAccount
+        accounts, setDeleteAccount, modalAccount, setModalAccount, setEditAccount, setCreateAccount
         }
       }>
       <div className="container">
         <div className="row">
           <Top/>
-          <List></List>
+          <List/>
+          <Create/>
         </div>
       </div>
       <Edit/>

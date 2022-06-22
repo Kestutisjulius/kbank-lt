@@ -3,15 +3,16 @@ import DataContext from "./DataContext";
 
 function ListLine({ account }) {
 
-    const {setDeleteAccount} = useContext(DataContext); //, setModalAccount
+    const {setDeleteAccount, setModalAccount} = useContext(DataContext);
 
     const remove = () => {
         setDeleteAccount(account);
     }
 
-    // const edit = () => {
-    //     setModalAnimal(animal);
-    // }
+
+    const edit = () => {
+        setModalAccount(account);
+    }
 
     return (
         <li className="list-group-item">
@@ -22,7 +23,17 @@ function ListLine({ account }) {
                 </div>
 
                 <div className="one-animal__buttons">
-                    {/* <button type="button" className="btn btn-outline-success mr-3" onClick={edit}>Edit</button> */}
+
+                {/* <button className="button-82-pushable" role="button">
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Button 82
+                </span>
+                </button> */}
+
+
+                    <button type="button" className="btn btn-outline-success mr-3" onClick={edit}>Edit</button>
                     <button type="button" className="btn btn-outline-danger" onClick={remove}>Delete</button>
                 </div>
             </div>
