@@ -36,17 +36,9 @@ function Create(){
 
     const create = () => {
         setCreateAccount({first_name, last_name, money, gender, currency_code, currency, credit_card, ip_address, email, avatar});
-        set_first_name('');
-        set_last_name('');
-        set_email('');
-        set_gender('');
-        set_ip_address('');
-        set_credit_card('');
-        set_currency('');
-        set_money('');
-        set_avatar("https://robohash.org/adipiscitotamveniam.png?size=50x50&set=set1");
-       // setModalCreateAccount(null);
+        setModalCreateAccount(null);
     }
+    
     if (null === modalCreateAccount) {return null;}
 
     return (
@@ -64,28 +56,57 @@ function Create(){
                         <div className="card-body">
                             <img src={avatar} alt="image_broken" />
                             <div className="form-group">
-                                <label>Firs name</label>
-                                <input type="text" className="form-control" value={first_name}  onChange={event => set_first_name(event.target.value)}/>
+                                <label>AVATAR</label>
+                                <input type="text" className="form-control" value={avatar ?? 'https://robohash.org/adipiscitotamveniam.png?size=50x50&set=set1'}  onChange={event => set_avatar(event.target.value)}/>
                                 <small className="form-text text-muted">Please enter some nice first Name (like MONKEY)</small>
                             </div> 
                             <div className="form-group">
+                                <label>Firs name</label>
+                                <input type="text" className="form-control" value={first_name ?? ''}  onChange={event => set_first_name(event.target.value)}/>
+                                <small className="form-text text-muted">Please enter some nice first Name (like MONKEY)</small>
+                            </div> 
+                            <div className="form-group">
+                                <label>Last name</label>
+                                <input type="text" className="form-control" value={last_name ?? ''}  onChange={event => set_last_name(event.target.value)}/>
+                                <small className="form-text text-muted">Please enter some nice LAST Name (like MON_KEY)</small>
+                            </div> 
+                            <div className="form-group">
+                                <label>Male: 
+                                    <input name="gender" type="radio"  value="Male"  onChange={event => set_gender(event.target.value)}/>
+                                </label>
+                                <label>Female: 
+                                    <input name="gender" type="radio"  value="Female" onChange={event => set_gender(event.target.value)}/>
+                                </label>
+
+                            </div>
+                            <div className="form-group">
                                 <label>ip_Address</label>
-                                <input type="text" className="form-control"  value={ip_address} onChange={event => set_ip_address(event.target.value)}/>
+                                <input type="text" className="form-control"  value={ip_address ?? ''} onChange={event => set_ip_address(event.target.value)}/>
                                 <small className="form-text text-muted">Please enter some nice IP address (like 1.1.1.1)</small>
                             </div> 
                             <div className="form-group">
+                                <label>credit Card</label>
+                                <input type="text" className="form-control"  value={credit_card ?? ''} onChange={event => set_credit_card(event.target.value)}/>
+                                <small className="form-text text-muted">Please enter some credit card Nr.(like LT 0011 2255 6555 8845)</small>
+                            </div> 
+                            <div className="form-group">
                                 <label>email</label>
-                                <input type="text" className="form-control" value={email} onChange={event => set_email(event.target.value)}/>
+                                <input type="text" className="form-control" value={email ?? ''} onChange={event => set_email(event.target.value)}/>
                                 <small className="form-text text-muted">Please enter some nice EMAIL (like DONKEY@gmail)</small>
                             </div>  
                             <div className="form-group">
-                                <label>Credit Card</label>
-                                <input type="text" className="form-control" value={credit_card} onChange={event => set_credit_card(event.target.value)}/>
-                                <small className="form-text text-muted">Please enter Credit Card NUMBER</small>
+                                <label>Currency</label>
+                                <input type="text" className="form-control" value={currency ?? ''} onChange={event => set_currency(event.target.value)}/>
+                                <small className="form-text text-muted">Please enter currency like 'Euro'</small>
+                            </div>
+                            <div className="form-group">
+                                <label>Currency code</label>
+                                <input type="text" className="form-control" value={currency_code ?? ''} onChange={event => set_currency_code(event.target.value)}/>
+                                <small className="form-text text-muted">Please enter currency code like 'EUR'</small>
                             </div>
                             <div className="form-group">
                                 <label>Money in €</label>
-                                <input type="text" className="form-control" value={money} onChange={event => set_money(event.target.value)}/>
+                                <input type="text" className="form-control" value={money ?? ''} onChange={event => set_money(event.target.value)}/>
                                 <small className="form-text text-muted">Please enter Money to BANK</small>
                             </div>
                         </div>

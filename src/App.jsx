@@ -12,6 +12,7 @@ function App() {
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
   const [accounts, setAccounts] = useState([]);
+  const [account, setAccount] = useState([]);
   const [createAccount, setCreateAccount] = useState(null);
   const [deleteAccount, setDeleteAccount] = useState([]);
   const [editAccount, setEditAccount] = useState(null);
@@ -25,7 +26,13 @@ function App() {
   }, [lastUpdate]);
 
   useEffect(() => {
+    axios.get('http://kbankas.lt/user/' + account.id)
+      .then(res => account(res.data));
+  }, [account]);
+
+  useEffect(() => {
     if (null === createAccount) return;
+    console.log(createAccount);
     axios.post('http://kbankas.lt/api/create', createAccount)
       .then(_ => setLastUpdate(Date.now()));
   }, [createAccount]);
@@ -47,6 +54,7 @@ function App() {
     <DataContext.Provider value={
         {
         accounts, 
+        setAccount, 
         setDeleteAccount, 
         modalAccount, 
         modalCreateAccount,

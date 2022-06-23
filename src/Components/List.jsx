@@ -7,7 +7,7 @@ function List() {
     const { accounts, setModalCreateAccount } = useContext(DataContext);
 
     const create = () => {
-        setModalCreateAccount(1);
+        setModalCreateAccount({});
     }
 
     return (
