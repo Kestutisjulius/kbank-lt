@@ -17,6 +17,7 @@ function App() {
   const [editAccount, setEditAccount] = useState(null);
 
   const [modalAccount, setModalAccount] = useState(null);
+  const [modalCreateAccount, setModalCreateAccount] = useState(null);
 
   useEffect(() => {
     axios.get('http://kbankas.lt/api/work')
@@ -45,7 +46,14 @@ function App() {
 
     <DataContext.Provider value={
         {
-        accounts, setDeleteAccount, modalAccount, setModalAccount, setEditAccount, setCreateAccount
+        accounts, 
+        setDeleteAccount, 
+        modalAccount, 
+        modalCreateAccount,
+        setModalAccount, 
+        setModalCreateAccount,
+        setEditAccount, 
+        setCreateAccount
         }
       }>
       <div className="container">

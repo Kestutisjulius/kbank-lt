@@ -4,10 +4,10 @@ import ListLine from "./ListLine";
 
 function List() {
 
-    const { accounts, setModalAccount } = useContext(DataContext);
+    const { accounts, setModalCreateAccount } = useContext(DataContext);
 
     const create = () => {
-        setModalAccount(1);
+        setModalCreateAccount(1);
     }
 
     return (
