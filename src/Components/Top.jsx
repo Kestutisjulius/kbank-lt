@@ -8,7 +8,7 @@ function Top(){
 
   const find = () =>{
     for (let i = 0; i < accounts.length; i++){
-      if(ccNum === accounts[i].credit_card){
+      if(ccNum === accounts[i].credit_card || ccNum === accounts[i].first_name){
         setAccount(accounts[i]);
         setModalAccount(accounts[i]);
       }

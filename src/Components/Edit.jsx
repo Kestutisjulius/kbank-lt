@@ -58,6 +58,7 @@ function Edit() {
                         <div className="card mt-4">
                             <div className="card-body">
                                 <img src={avatar} alt="image_broken" />
+                                <label>{money}</label>
                                 <div className="form-group">
                                     <label>Firs name</label>
                                     <input type="text" className="form-control" value={first_name} onChange={event => set_first_name(event.target.value)}/>
